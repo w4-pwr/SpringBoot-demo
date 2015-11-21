@@ -34,7 +34,7 @@ public class HelloController {
         country.setName("Polska");
         country.setPopulation((long) 38000000);
 
-        countryService.save(country);
+//        countryService.save(country);
 
         Pageable pageable = new PageRequest(0, 2, new Sort("population"));
         Page<Country> countries = countryService.findAll(pageable);

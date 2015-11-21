@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -7,5 +8,21 @@
 </head>
 <body>
 Działa
+
+<h1>Product list</h1>
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>population</th>
+    </tr>
+    <tr th:each="country : ${countries}">
+        <td th:text="${country.id}"></td>
+        <td th:text="${country.name}"></td>
+        <td th:text="${country.population}"></td>
+    </tr>
+</table>
+
 </body>
 </html>
