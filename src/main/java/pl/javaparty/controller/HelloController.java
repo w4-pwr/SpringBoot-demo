@@ -2,6 +2,10 @@ package pl.javaparty.controller;
 
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +36,8 @@ public class HelloController {
 
         countryService.save(country);
 
-        List<Country> countries = countryService.findAll();
+        Pageable pageable = new PageRequest(0, 2, new Sort("population"));
+        Page<Country> countries = countryService.findAll(pageable);
         model.addAttribute("countries", countries);
 
         return "index";
