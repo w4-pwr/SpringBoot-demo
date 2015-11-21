@@ -25,15 +25,15 @@ public class HelloController {
     public String index(Model model) {
         log.info("*******index*******");
 
-//        Country country = new Country();
-//
-//        country.setName("Polska");
-//        country.setPopulation((long) 38000000);
-//
-//        countryService.save(country);
-//
-//        List<Country> countries = countryService.findAll();
-//        model.addAttribute("countries", countries);
+        Country country = new Country();
+
+        country.setName("Polska");
+        country.setPopulation((long) 38000000);
+
+        countryService.save(country);
+
+        List<Country> countries = countryService.findAll();
+        model.addAttribute("countries", countries);
 
         return "index";
     }
